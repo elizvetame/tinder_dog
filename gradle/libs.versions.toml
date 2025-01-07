@@ -1,0 +1,70 @@
+[versions]
+agp = "8.6.1"
+autoValue = "1.6.3"
+
+cardstack = "0.3.1-beta0"
+cardStackView = "2.3.4"
+cardstackviewVersion = "v2.3.4"
+kotlin = "1.9.0"
+coreKtx = "1.15.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.7.0"
+activity = "1.9.3"
+
+navigationFragmentKtx = "2.8.5"
+navigationUiKtx = "2.8.5"
+firebaseAuth = "23.1.0"
+gmsversion = "4.4.2"
+bomVer ="33.7.0"
+lifecycleLivedataKtx = "2.8.7"
+lifecycleViewmodelKtx = "2.8.7"
+
+roomCompilerProcessingTesting = "2.6.1"
+
+roomCommon = "2.6.1"
+firebaseAuthKtx = "23.1.0"
+navigationRuntimeKtx = "2.8.5"
+navigationFragment = "2.8.5"
+firebaseDatabaseKtx = "21.0.0"
+
+[libraries]
+
+
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
+
+card-stack-view = { group = "com.yuyakaido.android", name = "card-stack-view" , version.ref = "cardStackView" }
+
+cardstack = { module = "com.daprlabs.aaron:cardstack", version.ref = "cardstack" }
+cardstackview = { module = "com.github.yuyakaido:CardStackView", version.ref = "cardstackviewVersion" }
+firebase-boom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "bomVer" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage-ktx"}
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.2.0" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-room-compiler-processing-testing = { group = "androidx.room", name = "room-compiler-processing-testing", version.ref = "roomCompilerProcessingTesting" }
+
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+gms = { id = "com.google.gms.google-services", version.ref = "gmsversion" }
+
