@@ -1,5 +1,4 @@
-package com.example.tinder.ui.notifications
-
+package com.example.tinder
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -9,20 +8,20 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tinder.databinding.ItemUserLayoutBinding
-import com.example.tinder.favorite
+import com.example.tinder.databinding.ItemFavoriteLayoutBinding
 import java.net.URL
 import java.util.concurrent.Executors
 
+class FavouriteAdapter(val context: Context, var list: ArrayList<favorite>) :
+    RecyclerView.Adapter<FavouriteAdapter.FavouriteViewHolder>() {
 
-class FavouriteAdapter (val context : Context, var list : ArrayList<favorite>): RecyclerView.Adapter<FavouriteAdapter.FavouriteViewHolder>(){
-    inner class FavouriteViewHolder(val binding : ItemUserLayoutBinding)
-        : RecyclerView.ViewHolder(binding.root)
+    inner class FavouriteViewHolder(val binding: ItemFavoriteLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteViewHolder {
-        return FavouriteViewHolder(ItemUserLayoutBinding.inflate(
-            LayoutInflater.from(context),
-            parent, false))
+        return FavouriteViewHolder(
+            ItemFavoriteLayoutBinding.inflate(LayoutInflater.from(context), parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -30,41 +29,30 @@ class FavouriteAdapter (val context : Context, var list : ArrayList<favorite>): 
     }
 
     override fun onBindViewHolder(holder: FavouriteViewHolder, position: Int) {
+        holder.binding.textView17.text = list[position].breed + ", " + list[position].age
+        holder.binding.textView13.text = list[position].gender
+        holder.binding.textView12.text =
+            "Есть прививки: \n" + list[position].vaccinations
+        holder.binding.textView14.text = list[position].generalInf
+
+        holder.binding.textView15.text =
+            "Контакты: " + list[position].contacts
+
         val executor = Executors.newSingleThreadExecutor()
-
-        // Once the executor parses the URL
-        // and receives the image, handler will load it
-        // in the ImageView
         val handler = Handler(Looper.getMainLooper())
-
-        // Initializing the image
         var image: Bitmap? = null
 
-        // Only for Background process (can take time depending on the Internet speed)
         executor.execute {
-
-            // Image URL
             val imageURL = list[position].imageUrl
-
-            // Tries to get the image and post it in the ImageView
-            // with the help of Handler
             try {
-                val `in` = URL(imageURL).openStream()
-                image = BitmapFactory.decodeStream(`in`)
-
-                // Only for making changes in UI
+                val inStream = URL(imageURL).openStream()
+                image = BitmapFactory.decodeStream(inStream)
                 handler.post {
-                    holder.binding.userImage.setImageBitmap(image)
+                    holder.binding.userImage1.setImageBitmap(image)
                 }
-            }
-            // If the URL doesnot point to
-            // image or any other kind of failure
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
-
-
         }
     }
-
 }

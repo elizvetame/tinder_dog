@@ -9,9 +9,10 @@
 
     <com.yuyakaido.android.cardstackview.CardStackView
         android:id="@+id/cardStackView1"
+        android:background="@drawable/my_gradient_drawable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_user_layout"
+        tools:listitem="@layout/item_favorite_layout"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

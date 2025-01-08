@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.tinder.Animals
 import com.example.tinder.DatingAdapter
+import com.example.tinder.FavouriteAdapter
 import com.example.tinder.databinding.FragmentNotificationsBinding
 import com.example.tinder.favorite
 import com.google.firebase.Firebase
@@ -125,7 +126,7 @@ class NotificationsFragment : Fragment() {
                     init()
                     binding.cardStackView1.layoutManager = manager
                     binding.cardStackView1.itemAnimator = DefaultItemAnimator()
-                    binding.cardStackView1.adapter =FavouriteAdapter(requireContext(), animals)
+                    binding.cardStackView1.adapter = FavouriteAdapter(requireContext(), animals)
                 }
                 .addOnFailureListener { exception ->
                     Log.d(TAG, "Error getting documents: ", exception)

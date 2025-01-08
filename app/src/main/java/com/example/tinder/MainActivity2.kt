@@ -18,6 +18,7 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var etEmail: EditText
     private lateinit var etPass: EditText
     lateinit var btnLogin: Button
+    lateinit var btnReg: TextView
 
     // Создание объекта FirebaseAuth
     lateinit var auth: FirebaseAuth
@@ -37,6 +38,13 @@ class MainActivity2 : AppCompatActivity() {
         btnLogin = findViewById(R.id.button)
         etEmail = findViewById(R.id.editTextTextEmailAddress2)
         etPass = findViewById(R.id.editTextTextPassword2)
+
+        btnReg = findViewById(R.id.textView18)
+
+        btnReg.setOnClickListener {
+            val intent = Intent(this, MainActivity3::class.java)
+            startActivity(intent)
+        }
 
         // initialising Firebase auth object
         auth = FirebaseAuth.getInstance()

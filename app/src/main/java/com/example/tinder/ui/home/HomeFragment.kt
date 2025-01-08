@@ -1,14 +1,20 @@
 package com.example.tinder.ui.home
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.tinder.MainActivity
+import com.example.tinder.MainActivity2
+import com.example.tinder.MainActivity5
+import com.example.tinder.R
 import com.example.tinder.databinding.FragmentHomeBinding
 import com.example.tinder.ui.User
 import com.google.firebase.Firebase
@@ -38,6 +44,31 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val button_vhod = binding.button5
+        button_vhod.setOnClickListener {
+            val context = requireActivity()
+
+            // Создаем интент для запуска новой активности
+            val intent = Intent(context, MainActivity::class.java)
+
+            // Запускаем активность
+            context.startActivity(intent)
+        }
+
+        val button_izm = binding.button6
+        button_izm.setOnClickListener {
+            val context = requireActivity()
+
+            // Создаем интент для запуска новой активности
+            val intent = Intent(context, MainActivity5::class.java)
+
+            // Запускаем активность
+            context.startActivity(intent)
+        }
+
+
+
 
 
         val list = emptyList<User>()

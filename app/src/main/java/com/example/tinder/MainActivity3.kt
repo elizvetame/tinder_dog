@@ -23,6 +23,7 @@ class MainActivity3 : AppCompatActivity() {
     private lateinit var etNumber: EditText
     private lateinit var etPass: EditText
     private lateinit var btnSignUp: Button
+    lateinit var btnReg: TextView
 
 
     // создать объект аутентификации Firebase
@@ -46,6 +47,13 @@ class MainActivity3 : AppCompatActivity() {
         etNumber = findViewById(R.id.editTextPhone)
         //tvRedirectLogin = findViewById(R.id.tvRedirectLogin)
 
+        btnReg = findViewById(R.id.textView20)
+
+        btnReg.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
         // Initialising auth object
         auth = Firebase.auth
 
@@ -61,20 +69,12 @@ class MainActivity3 : AppCompatActivity() {
         val pass = etPass.text.toString()
         val name = etName.text.toString()
         val number = etNumber.text.toString()
-
-
-
         // check pass
         if (email.isBlank() || pass.isBlank() || name.isBlank() || number.isBlank()) {
             Toast.makeText(this, "Поля не заполнены!", Toast.LENGTH_SHORT).show()
             return
         }
 
-
-        // Если все учетные данные верны
-        // // Мы вызываем CreateUser с адресом электронной почты и паролем
-        //, используя объект auth, и передаем
-        // адрес электронной почты и пароль в нем.
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
             if (it.isSuccessful) {
                 Toast.makeText(this, "Регистрация успешна!", Toast.LENGTH_SHORT).show()
@@ -87,9 +87,9 @@ class MainActivity3 : AppCompatActivity() {
                     fs.collection("users")
                         .document(uid).set(
                             User(
+                                email,
                                 name,
-                                number,
-                                email
+                                number
                             )
                         )
 
